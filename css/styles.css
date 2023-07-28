@@ -57,6 +57,13 @@ body {
 }
 
 
+/** Footer **/
+.footer {
+    text-align: center;
+}
+
+
+
 /** Tipografia **/
 h1 {
     font-size: 3.8rem;
@@ -197,7 +204,7 @@ h1,h2,h3 {
 }
 
 
-/** Contacto **/
+/** Formulario Contacto **/
 .formulario {
     background-color: var(--gris);
     width: min( 60rem, 100% ); /** Utilizar el valor más pequeño **/
@@ -248,13 +255,6 @@ h1,h2,h3 {
     border-radius: .5rem;
 }
 
-
-/** Footer **/
-.footer {
-    text-align: center;
-}
-
-
 /**Grid Tienda **/
 .grid{
     display: grid;
@@ -278,13 +278,12 @@ img {
  }
 
 
-/** Productos **/
+/** Productos Tienda **/
 .producto{
-    background-color: var(--pink);
+    background-color: var(--blanco);
     padding: 1rem;
     text-decoration: none;
 }
-
 .producto-nombre{
     font-size: 4rem;
     text-align: center;
@@ -297,32 +296,16 @@ img {
 }
 
 
-/** Pagina Video Clic **/
-.video-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.video-row {
-    display: flex;
-}
-.video-column{
-    flex: 1;
-    padding: 20px;
-}
-.small-video{
-    width: 500px;
-    height: 300px;
-}
-
-
 /** Nosotros **/
 .comprar-titulo{
     color: var(--primario);
 }
 .contenedor-nosotros{
    max-width: 128rem;
-   margin: 0 auto;
+   margin: 1rem auto;
+   background-color: var(--blanco);
+   padding: 4rem;
+   border-radius: 1rem;
 }
 .nosotros{
     display: grid;
@@ -336,16 +319,23 @@ img {
 }
 .nosotros-imagen{
     grid-row: 1 / 2;
+    margin: 0 auto;
 }
 @media (min-width: 768px) {
     .nosotros-imagen{
         grid-column: 2 / 3;
     }
 }
-.nosotros-contenido{
+.nosotros-contenido p {
   text-align: justify;
 }
-
+.contenedor-comprar{
+    max-width: 128rem;
+    margin: 1rem auto;
+    background-color:var(--secundario);
+    padding: 4rem;
+    border-radius: 1rem;
+}
 
 /** Bloques Nosotros**/
 .bloques {
@@ -384,4 +374,23 @@ img {
     background-color: #757575;
     border: none;
     font-size: 2rem;
+}
+
+
+/** Pagina Video Clic **/
+.video-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.video-row {
+    display: flex;
+}
+.video-column{
+    flex: 1;
+    padding: 20px;
+}
+.small-video{
+    width: 500px;
+    height: 300px;
 }
