@@ -358,22 +358,22 @@ h1,h2,h3 {
 
 /** Pagina del Producto**/
 @media (min-width: 768px) {
-    .buzo{
+    .articulo{
         display: grid;
         grid-template-columns: repeat(2,1fr);
     }
 }
-.buzo-imagen{
+.articulo-imagen{
     width: 70%; 
 }
 @media (max-width: 767px) {
-    .buzo{
+    .articulo{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .buzo-imagen{
+    .articulo-imagen{
         width: 50%;
     }
 }
