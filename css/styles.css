@@ -251,16 +251,17 @@ h1,h2,h3 {
 }
 
 
-/** Carrusel **/
+/** Carrusel Mq**/
 @media (max-width: 767px) {
     .carrusel img {
         width: 250px;
         height: 250px;
-        margin: 0; 
+        margin-left: 0;
+        margin-right: 10px;
     }
     .imagenes{
-        margin-left: 100px;
-        gap: 150px;
+        margin: 0 auto;
+        gap: 10px;
     }
     .carrusel{
         justify-content: center;
