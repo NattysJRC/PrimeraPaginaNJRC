@@ -251,7 +251,7 @@ h1,h2,h3 {
 }
 
 
-/** Carusel **/
+/** Carrusel **/
 @media (max-width: 767px) {
     .carrusel img {
         width: 250px;
