@@ -249,22 +249,23 @@ h1,h2,h3 {
 .valorant img{
     width: 250px;
 }
+
+
+/** Carusel **/
 @media (max-width: 767px) {
     .carrusel img {
-        width: 35rem;
-        height: 35rem;
+        width: 250px;
+        height: 250px;
         margin: 0; 
     }
     .imagenes{
-        margin-left: 40px;
-        margin-right: 40px ;
-        gap: 77px;
+        margin-left: 100px;
+        gap: 150px;
     }
     .carrusel{
         justify-content: center;
     }
 }
-
 
 /** Formulario Contacto **/
 .formulario {
