@@ -81,6 +81,8 @@ h1,h2,h3 {
     text-align: center;
 }
 
+
+
 /** Header **/
 .header {
     display: flex;
@@ -188,6 +190,7 @@ h1,h2,h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .servicio h3 {
     color: var(--oscuro);
@@ -195,9 +198,9 @@ h1,h2,h3 {
 }
 .servicio p {
     line-height: 2;
-    text-align: center;
+    text-align: justify;
 }
-.servicio .iconos {
+.iconos {
     height: 15rem;
     width: 15rem;
     background-color: var(--primario);
@@ -205,12 +208,61 @@ h1,h2,h3 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 20px;
 }
 .servicio .fotomia {
     height: 15rem;
     width: 15rem;
     overflow: hidden;
     border-radius: 50%;
+}
+
+
+/** Carrusel de Imagenes **/
+.carrusel {
+   position: relative;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+}
+.imagenes{
+    display: flex;
+}
+.carrusel img {
+    width: 260px; 
+    height: 260px;
+    margin-left: 70px;
+    margin-right: 40px;
+}
+.flecha-izquierda,
+.flecha-derecha{
+    cursor: pointer;
+    font-size: 30px;
+    color: var(--primario);
+    margin: 0 10px;
+    opacity: 1;
+    user-select: none;
+}
+.flecha-izquierda {
+    order: -1;
+}
+.valorant img{
+    width: 250px;
+}
+@media (max-width: 767px) {
+    .carrusel img {
+        width: 35rem;
+        height: 35rem;
+        margin: 0; 
+    }
+    .imagenes{
+        margin-left: 40px;
+        margin-right: 40px ;
+        gap: 77px;
+    }
+    .carrusel{
+        justify-content: center;
+    }
 }
 
 
@@ -416,4 +468,11 @@ h1,h2,h3 {
 .small-video{
     width: 100%;
     height: auto;
+}
+@media (min-width: 768px) {
+    .video{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    }
 }
