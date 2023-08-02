@@ -218,54 +218,68 @@ h1,h2,h3 {
 }
 
 
+
 /** Carrusel de Imagenes **/
-.carrusel {
-   position: relative;
-   overflow: hidden;
-   display: flex;
-   align-items: center;
+.carrusel{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 .imagenes{
     display: flex;
+    transition: transform 0.3s ease-in-out;
+    justify-content: flex-start;
 }
-.carrusel img {
-    width: 260px; 
-    height: 260px;
-    margin-left: 70px;
-    margin-right: 40px;
+.imagen{
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.flecha-izquierda,
-.flecha-derecha{
+  
+.imagenes img{
+    max-width: 50%;
+    max-width: 50%;
+    margin-right: 20%;
+    margin-left: 30%;
+}
+.flechas{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.flecha{
+    width: 30px;
+    height: 30px;
+    background-color: var(--primario);
     cursor: pointer;
-    font-size: 30px;
-    color: var(--primario);
-    margin: 0 10px;
-    opacity: 1;
-    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.flecha-izquierda {
-    order: -1;
+.flecha.izquierda::before,
+.flecha.derecha::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.flecha.izquierda::before {
+    border-width: 7px 10px 7px 0;
+    border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+} 
+.flecha.derecha::before {
+    border-width: 7px 0 7px 10px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
 }
 .valorant img{
-    width: 250px;
-}
-
-
-/** Carrusel Mq**/
-@media (max-width: 767px) {
-    .carrusel img {
-        width: 250px;
-        height: 250px;
-        margin-left: 0;
-        margin-right: 10px;
-    }
-    .imagenes{
-        margin: 0 auto;
-        gap: 10px;
-    }
-    .carrusel{
-        justify-content: center;
-    }
+    width: 60%;
 }
 
 /** Formulario Contacto **/

@@ -1,33 +1,53 @@
-const carrusel = document.querySelector(".imagenes");
-const flechaIzquierda = document.querySelector(".flecha-izquierda");
-const flechaDerecha = document.querySelector(".flecha-derecha");
+const imagenes = document.querySelector('.imagenes');
+const flechaIzquierda = document.querySelector('.flecha.izquierda');
+const flechaDerecha = document.querySelector('.flecha.derecha');
+const imagenesItems = document.querySelectorAll('.imagen');
+const intervalo = 3000; // Intervalo de pausa en milisegundos (3 segundos)
 
-const carruselVisible = document.querySelector(".carrusel").clientWidth;
-const cantidadImagenes = carrusel.children.length;
-let posicionActual = 0;
+let indiceActual = 0;
 
-actualizarFlechas();
-
-flechaIzquierda.addEventListener("click", () => {
-    if (posicionActual > 0) {
-        posicionActual--;
-        const desplazamiento = -posicionActual * carruselVisible;
-        carrusel.style.transform = `translateX(${desplazamiento}px)`;
-        actualizarFlechas();
-    }
-});
-
-flechaDerecha.addEventListener("click", () => {
-    if (posicionActual < cantidadImagenes - 1) {
-        posicionActual++;
-        const desplazamiento = -posicionActual * carruselVisible;
-        carrusel.style.transform = `translateX(${desplazamiento}px)`;
-        actualizarFlechas();
-    }
-});
-
-function actualizarFlechas() {
-    // Mostrar las flechas siempre y deshabilitar solo cuando no haya más imágenes en esa dirección
-    flechaIzquierda.style.opacity = posicionActual === 0 ? "0.5" : "1";
-    flechaDerecha.style.opacity = posicionActual === cantidadImagenes - 1 ? "0.5" : "1";
+function mostrarImagen(indice) {
+  imagenes.style.transform = `translateX(-${indice * 100}%)`;
+  indiceActual = indice;
 }
+
+flechaIzquierda.addEventListener('click', () => {
+  if (indiceActual > 0) {
+    mostrarImagen(indiceActual - 1);
+  } else {
+    mostrarImagen(imagenesItems.length - 1);
+  }
+});
+
+flechaDerecha.addEventListener('click', () => {
+  if (indiceActual < imagenesItems.length - 1) {
+    mostrarImagen(indiceActual + 1);
+  } else {
+    mostrarImagen(0);
+  }
+});
+
+// Función para cambiar la imagen automáticamente cada intervalo de tiempo
+function cambiarImagenAutomaticamente() {
+  if (indiceActual < imagenesItems.length - 1) {
+    mostrarImagen(indiceActual + 1);
+  } else {
+    mostrarImagen(0);
+  }
+}
+
+// Configuración del cambio automático de imagen
+let intervaloCambio = setInterval(cambiarImagenAutomaticamente, intervalo);
+
+// Pausar el cambio automático de imagen cuando el cursor esté sobre el carrusel
+imagenes.addEventListener('mouseenter', () => {
+  clearInterval(intervaloCambio);
+});
+
+// Reanudar el cambio automático de imagen cuando el cursor salga del carrusel
+imagenes.addEventListener('mouseleave', () => {
+  intervaloCambio = setInterval(cambiarImagenAutomaticamente, intervalo);
+});
+
+// Configuración inicial para mostrar la primera imagen
+mostrarImagen(0);
