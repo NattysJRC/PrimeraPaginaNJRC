@@ -51,3 +51,43 @@ imagenes.addEventListener('mouseleave', () => {
 
 // Configuración inicial para mostrar la primera imagen
 mostrarImagen(0);
+
+
+
+    // Formulario
+    const form = document.querySelector('.formulario');
+
+    // Función para manejar el envío de formularios
+    function handleSubmit(event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado de envío de formularios
+
+        // Get the form fields
+        const nameInput = form.querySelector('input[name="nombre"]');
+        const phoneInput = form.querySelector('input[name="telefono"]');
+        const emailInput = form.querySelector('input[name="correo"]');
+        const messageInput = form.querySelector('textarea[name="mensaje"]');
+
+        // Comprueba si algún campo obligatorio está vacío
+        if (
+            nameInput.value.trim() === '' ||
+            phoneInput.value.trim() === '' ||
+            emailInput.value.trim() === '' ||
+            messageInput.value.trim() === ''
+        ) {
+            // Mostrar una alerta si algún campo obligatorio está vacío
+            alert('Por favor, completa todos los campos.');
+        } else {
+            // Envía el formulario si todos los campos están llenos
+            form.submit();
+        }
+    }
+
+    // Adjunte el detector de eventos al botón de envío del formulario
+    const submitButton = form.querySelector('input[type="submit"]');
+    submitButton.addEventListener('click', handleSubmit);
+
+
+
+
+
+
